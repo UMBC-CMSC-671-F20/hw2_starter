@@ -13,12 +13,12 @@ default_searchers = [s.breadth_first_tree_search,
 def wjsolve(capacities, start, goal, searchers=default_searchers):
     problem = wj.WJ(capacities, start, goal)
     print("Solving {}".format(problem))
+
     for alg in searchers:
         print('\n\nSearch algorithm:', alg.__name__)
         wj.print_solution(alg(problem))
 
     print("\n\nSUMMARY: successors/goal tests/states generated/solution\n")
-    #s.compare_searchers([wj2.WJ2(capacities, start, goal)], [], searchers)
     s.compare_searchers([problem], [], searchers)
 
 def convert(g1_g2):
